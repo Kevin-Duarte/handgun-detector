@@ -13,7 +13,8 @@ def allowed_file(filename):
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@api_anon.route('/anon/gun-check', methods=['POST'])
+@api_anon.route( SERVER_URL_PREFIX + '/anon/gun-check', methods=['POST'])
+
 @limiter.limit("2 per second")
 def gun_check():
     try:

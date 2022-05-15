@@ -10,6 +10,7 @@ from flask_limiter.util import get_remote_address
 
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
 DEEPSTACK_QUERY_URL = os.environ['DEEPSTACK_QUERY_URL']
+SERVER_URL_PREFIX = os.environ['SERVER_URL_PREFIX']
 
 app = Flask(__name__, template_folder='template')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000 #16 megabytes max upload 

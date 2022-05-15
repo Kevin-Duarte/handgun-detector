@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    container_name: handgun-detector-webapp
+    build: .
+    image: gun-detector-img
+    command: ["/start.sh"]
+    ports:
+      - '5006:80'
+    environment:
+      - SECRET_KEY="RANDOM_AND_LONG_KEY_HERE"
+      - DEEPSTACK_QUERY_URL=http://localhost:5000/v1/vision/custom/best
