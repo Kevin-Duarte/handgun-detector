@@ -51,6 +51,6 @@ dropZone.addEventListener('drop', function(e) {
 
     var formData = new FormData()
     formData.append('image', files[0])
-    xhr.open("POST", "./anon/gun-check", true);
+    xhr.open("POST", "./anon/gun-check", false);
     xhr.send(formData);
 });
