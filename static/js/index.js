@@ -25,7 +25,6 @@ dropZone.addEventListener('drop', function(e) {
             }
             else
             {
-                
                 document.getElementById('analysis-text').value = xhr.responseText;
             }
             
@@ -52,6 +51,6 @@ dropZone.addEventListener('drop', function(e) {
 
     var formData = new FormData()
     formData.append('image', files[0])
-    xhr.open("POST", "/anon/gun-check", true);
+    xhr.open("POST", "./anon/gun-check", true);
     xhr.send(formData);
 });

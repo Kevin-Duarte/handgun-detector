@@ -1,4 +1,5 @@
 from ast import Bytes
+import sys
 from xml.etree.ElementTree import tostring
 from flask import Blueprint
 from numpy import byte
@@ -12,14 +13,11 @@ def allowed_file(filename):
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
-@api_anon.route( SERVER_URL_PREFIX + '/anon/gun-check', methods=['POST'])
-
+@api_anon.route('/anon/gun-check', methods=['POST'])
 @limiter.limit("2 per second")
 def gun_check():
     try:
         image = request.files['image']
-        
         if image and allowed_file(image.filename):
             image_converted = Image.open(image.stream).convert('L')
             image_bytes = BytesIO()
