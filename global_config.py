@@ -17,9 +17,9 @@ app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=['10000 per day', '2 per second']
+    get_remote_address,
+    app=app,
+    default_limits=["2 per second"]
 )
 
 
