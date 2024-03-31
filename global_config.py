@@ -19,7 +19,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 limiter = Limiter(
     app,
     key_func=get_remote_address,
-    default_limits=['2 per second']
+    default_limits=['10000 per day', '2 per second']
 )
 
 
